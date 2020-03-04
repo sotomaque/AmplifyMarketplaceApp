@@ -2,12 +2,11 @@ import React from "react";
 // prettier-ignore
 // import { Table, Button, Notification, MessageBox, Message, Tabs, Icon, Form, Dialog, Input, Card, Tag } from 'element-react'
 
-class ProfilePage extends React.Component {
-  state = {};
+const ProfilePage = () => {
 
-  render() {
-    return <div>ProfilePage</div>
-  }
+ 
+  return <div>ProfilePage</div>
+  
 }
 
 export default ProfilePage;
