@@ -22,6 +22,10 @@ class NewProduct extends React.Component {
   };
 
   handleAddProduct = async () => {
+    const {
+      attributes: { sub }
+    } = this.props.user;
+    
     try {
       this.setState({ isUploading: true }); 
       const visibility = "public"; 
@@ -34,7 +38,6 @@ class NewProduct extends React.Component {
           this.setState({ percentUploaded });
         }
       })
-      console.log('made it past storage')
       const file = {
         key: uploadedFile.key,
         bucket: aws_exports.aws_user_files_s3_bucket,
@@ -45,7 +48,8 @@ class NewProduct extends React.Component {
         description: this.state.description,
         shipped: this.state.shipped,
         price: convertDollarsToCents(this.state.price),
-        file
+        file,
+        owner: sub
       }
       const result = await API.graphql(graphqlOperation(createProduct, { input }));
       console.dir('uploaded proudct', result)
@@ -114,7 +118,7 @@ class NewProduct extends React.Component {
               </Radio>
             </Form.Item>
               {
-                imagePreview && (
+                imagePreview && !isUploading && (
                   <img 
                     className="image-preview"
                     src={imagePreview}

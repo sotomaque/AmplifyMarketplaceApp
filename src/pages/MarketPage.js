@@ -113,6 +113,7 @@ class MarketPage extends React.Component {
   render() {
     // destructure from state
     const { market, isLoading, isMarketOwner } = this.state;
+    const { user } = this.props;
 
   {/* return markup only if isLoading is set to false */}
     return isLoading ? (
@@ -148,7 +149,7 @@ class MarketPage extends React.Component {
          name="1"
          >
 
-         <NewProduct marketId={this.props.marketId} />
+         <NewProduct user={user} marketId={this.props.marketId} />
 
          </Tabs.Pane>
        )}
