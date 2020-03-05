@@ -56,11 +56,6 @@ export const getProduct = /* GraphQL */ `
     getProduct(id: $id) {
       id
       description
-      file {
-        bucket
-        region
-        key
-      }
       market {
         id
         name
@@ -70,6 +65,11 @@ export const getProduct = /* GraphQL */ `
         products {
           nextToken
         }
+      }
+      file {
+        bucket
+        region
+        key
       }
       price
       shipped
@@ -88,17 +88,17 @@ export const listProducts = /* GraphQL */ `
       items {
         id
         description
-        file {
-          bucket
-          region
-          key
-        }
         market {
           id
           name
           tags
           owner
           createdAt
+        }
+        file {
+          bucket
+          region
+          key
         }
         price
         shipped

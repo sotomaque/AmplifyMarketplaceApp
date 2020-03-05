@@ -84,11 +84,6 @@ export const createProduct = /* GraphQL */ `
     createProduct(input: $input, condition: $condition) {
       id
       description
-      file {
-        bucket
-        region
-        key
-      }
       market {
         id
         name
@@ -98,6 +93,11 @@ export const createProduct = /* GraphQL */ `
         products {
           nextToken
         }
+      }
+      file {
+        bucket
+        region
+        key
       }
       price
       shipped
@@ -114,11 +114,6 @@ export const updateProduct = /* GraphQL */ `
     updateProduct(input: $input, condition: $condition) {
       id
       description
-      file {
-        bucket
-        region
-        key
-      }
       market {
         id
         name
@@ -128,6 +123,11 @@ export const updateProduct = /* GraphQL */ `
         products {
           nextToken
         }
+      }
+      file {
+        bucket
+        region
+        key
       }
       price
       shipped
@@ -144,11 +144,6 @@ export const deleteProduct = /* GraphQL */ `
     deleteProduct(input: $input, condition: $condition) {
       id
       description
-      file {
-        bucket
-        region
-        key
-      }
       market {
         id
         name
@@ -158,6 +153,11 @@ export const deleteProduct = /* GraphQL */ `
         products {
           nextToken
         }
+      }
+      file {
+        bucket
+        region
+        key
       }
       price
       shipped
@@ -216,17 +216,17 @@ export const createOrder = /* GraphQL */ `
       product {
         id
         description
-        file {
-          bucket
-          region
-          key
-        }
         market {
           id
           name
           tags
           owner
           createdAt
+        }
+        file {
+          bucket
+          region
+          key
         }
         price
         shipped

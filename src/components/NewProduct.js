@@ -52,7 +52,6 @@ class NewProduct extends React.Component {
         owner: sub
       }
       const result = await API.graphql(graphqlOperation(createProduct, { input }));
-      console.dir('uploaded proudct', result)
       Notification({
         title: "Success",
         message: "Product Successfully Created!",

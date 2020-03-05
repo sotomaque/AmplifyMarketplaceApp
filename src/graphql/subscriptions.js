@@ -99,11 +99,6 @@ export const onUpdateProduct = /* GraphQL */ `
     onUpdateProduct(owner: $owner) {
       id
       description
-      file {
-        bucket
-        region
-        key
-      }
       market {
         id
         name
@@ -113,6 +108,11 @@ export const onUpdateProduct = /* GraphQL */ `
         products {
           nextToken
         }
+      }
+      file {
+        bucket
+        region
+        key
       }
       price
       shipped
@@ -126,11 +126,6 @@ export const onDeleteProduct = /* GraphQL */ `
     onDeleteProduct(owner: $owner) {
       id
       description
-      file {
-        bucket
-        region
-        key
-      }
       market {
         id
         name
@@ -140,6 +135,11 @@ export const onDeleteProduct = /* GraphQL */ `
         products {
           nextToken
         }
+      }
+      file {
+        bucket
+        region
+        key
       }
       price
       shipped

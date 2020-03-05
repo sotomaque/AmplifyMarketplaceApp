@@ -78,10 +78,6 @@ class MarketPage extends React.Component {
     } catch(error) {
       console.error('error with on delete product subscription', error)
     }
-
-    
-
-   
   }
  
    componentWillUnmount() {
@@ -89,7 +85,6 @@ class MarketPage extends React.Component {
      this.updateProductListener.unsubscribe();
      this.deleteProductListener.unsubscribe();
    }
-
 
   handleGetMarket = async () => {
     const input = {
@@ -108,14 +103,11 @@ class MarketPage extends React.Component {
       this.setState({ isMarketOwner: user.username === market.owner });
     }
   }
-  
-  // display marketId that we passed through props
+ 
   render() {
-    // destructure from state
     const { market, isLoading, isMarketOwner } = this.state;
     const { user } = this.props;
 
-  {/* return markup only if isLoading is set to false */}
     return isLoading ? (
       <Loading fullscreen={true} />
     ) : (
@@ -158,24 +150,21 @@ class MarketPage extends React.Component {
         <Tabs.Pane
           label = {
             <>
-              <Icon name="menu" className="icon" />
-              Products ({ market.products.items.length })
+              <Icon name="menu" className="icon" />Products ({ market.products.items.length })
             </>
           }      
           name="2"
-          >
-          {/* Pane name is 2 */}
-
-          {/* map over products*/}
+        >
           <div className="product-list">
-            {market.products.items.map(product => (
-              <Product key={product.id} product={product}/>
-            ))} 
+            {
+              market.products.items.map(product => (
+                <Product key={product.id} product={product} />
+              ))
+            } 
           </div>
         </Tabs.Pane>
-        </Tabs>
-      </>
-    )
+      </Tabs>
+    </>)
   }
 }
 
