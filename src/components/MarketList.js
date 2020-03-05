@@ -6,6 +6,9 @@ import { listMarkets } from '../graphql/queries';
 import Error from './Error';
 import { Loading, Card, Tag, Icon } from "element-react";
 import { Link } from 'react-router-dom';
+import UserContext from '../App';
+
+
 
 const MarketList = ({ searchResults }) => {
   const onNewMarket = (prevQuery, newData) => {
@@ -21,12 +24,13 @@ const MarketList = ({ searchResults }) => {
     // returning it
     return updateQuery
   }
-
+  const userContext = React.useContext(UserContext)
+  const { user } = userContext;
   return (
     <Connect
       // get data, loading, errors from query 
       query={graphqlOperation(listMarkets)}
-      subscription={graphqlOperation(onCreateMarket)}
+      subscription={graphqlOperation(onCreateMarket, { owner: user.username })}
       // get access to new market data
       onSubscriptionMsg={onNewMarket}
     >

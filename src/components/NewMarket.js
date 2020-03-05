@@ -17,7 +17,6 @@ class NewMarket extends React.Component {
       addMarketDialog: false,
       options: []
     };
-    console.log(props)
   }
 
   
