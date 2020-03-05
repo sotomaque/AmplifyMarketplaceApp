@@ -38,6 +38,13 @@ export const listMarkets = /* GraphQL */ `
         createdAt
         products {
           nextToken
+          items {
+            description
+            id
+            shipped
+            owner
+            createdAt
+          }
         }
       }
       nextToken

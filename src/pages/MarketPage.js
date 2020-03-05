@@ -139,22 +139,21 @@ class MarketPage extends React.Component {
 
        {/*  New Product */}
        <Tabs type="border-card" value= {isMarketOwner ? "1" : "2"}>
-       {isMarketOwner && (
-         <Tabs.Pane label={
-           <>
-           <Icon name="plus" className="icon"/>
-            Add Product
-           </>
-         }
-         name="1"
-         >
-
-         <NewProduct user={user} marketId={this.props.marketId} />
-
-         </Tabs.Pane>
-       )}
-     
-
+        {/*  Ability to add new market for market owner only */}
+        {
+          isMarketOwner && (
+            <Tabs.Pane 
+                label={
+                  <>
+                    <Icon name="plus" className="icon"/>Add Product
+                  </>
+                }
+                name="1"
+            >
+              <NewProduct user={user} marketId={this.props.marketId} />
+            </Tabs.Pane>
+          )
+        }
         {/* Products List */}
         <Tabs.Pane
           label = {
